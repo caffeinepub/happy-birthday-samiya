@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+    --background: 0.08 0 0;
+    --foreground: 0.95 0.03 85;
+    --card: 0.12 0 0;
+    --card-foreground: 0.95 0.03 85;
+    --popover: 0.12 0 0;
+    --popover-foreground: 0.95 0.03 85;
+    --primary: 0.78 0.12 85;
+    --primary-foreground: 0.08 0 0;
+    --secondary: 0.15 0 0;
+    --secondary-foreground: 0.95 0.03 85;
+    --muted: 0.15 0 0;
+    --muted-foreground: 0.55 0 0;
+    --accent: 0.65 0.1 80;
+    --accent-foreground: 0.08 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.78 0.12 85 / 30%;
+    --input: 0.78 0.12 85 / 20%;
+    --ring: 0.78 0.12 85;
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.1 0 0;
+    --sidebar-foreground: 0.95 0.03 85;
+    --sidebar-primary: 0.78 0.12 85;
+    --sidebar-primary-foreground: 0.08 0 0;
+    --sidebar-accent: 0.15 0 0;
+    --sidebar-accent-foreground: 0.95 0.03 85;
+    --sidebar-border: 0.78 0.12 85 / 20%;
+    --sidebar-ring: 0.78 0.12 85;
+
+    /* Gold palette for direct use */
+    --gold: #d4af37;
+    --gold-deep: #b8860b;
+    --gold-light: #f7ef8a;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes openBox {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) rotate(5deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: var(--gold);
+  border-radius: 50%;
+  animation: twinkle var(--twinkle-duration, 3s) infinite;
+  animation-delay: var(--twinkle-delay, 0s);
+}
+
+.box-open {
+  animation: openBox 0.8s forwards ease-in-out;
+}
+
+.message-visible {
+  animation: fadeInUp 2s ease-in-out forwards;
+}
